@@ -23,7 +23,7 @@ const alreadyClaimed : any[] = [];
 
 image = notFollowingImage;
 
-const _html = (img, msg, url) => `
+const _html = (img, msg, action, url) => `
 <!DOCTYPE html>
 <html>
   <head>
@@ -33,7 +33,7 @@ const _html = (img, msg, url) => `
     <meta property="fc:frame:image" content="${img}" />
     <meta property="fc:frame:image:aspect_ratio" content="1:1" />
     <meta property="fc:frame:button:1" content="${msg}" />
-    <meta property="fc:frame:button:1:action" content="link" />
+    <meta property="fc:frame:button:1:action" content="${action}" />
     <meta property="fc:frame:button:1:target" content="${url}" />
   </head>
 </html>
@@ -65,11 +65,11 @@ export async function POST(req) {
   const address = socials[0].userAssociatedAddresses[0]
 
   if (!results.Wallet.socialFollowers.Follower) {
-    return new NextResponse(_html(notFollowingImage, "Retry", `${URL}`));
+    return new NextResponse(_html(notFollowingImage, "Retry", "post_redirect", `${URL}`));
   }
 
   if (alreadyClaimed.includes(fid)) {
-    return new NextResponse(_html(noGreedImage, "See in Dashboard", `https://app.superfluid.finance/?view=${address}`));
+    return new NextResponse(_html(noGreedImage, "See in Dashboard", "link", `https://app.superfluid.finance/?view=${address}`));
   }
 
   image = final;
@@ -86,7 +86,7 @@ export async function POST(req) {
 
   alreadyClaimed.push(fid);
 
-  return new NextResponse(_html(image, "See in Dashboard", `https://app.superfluid.finance/?view=${address}`));
+  return new NextResponse(_html(image, "See in Dashboard", "link", `https://app.superfluid.finance/?view=${address}`));
 }
 
 export const dynamic = "force-dynamic";
