@@ -4,12 +4,13 @@ import { followingQuery, walletQuery } from "../api";
 import { init, fetchQuery } from "@airstack/node";
 import { account, walletClient, publicClient } from "./config";
 import ABI from "./abi.json";
-import { URL } from './../../constants'
+
+const URL = process.env.ENVIRONMENT === 'local' ?
+  process.env.LOCALHOST : process.env.PROD_URL
 
 // USDC contract address on Base
 const contractAddress = "0xcfA132E353cB4E398080B9700609bb008eceB125";
 const USDCxAddress = "0xD04383398dD2426297da660F9CCA3d439AF9ce1b";
-const senderAddress = "0x063F6e5967Cb3808D675613C926CeA0D45BB813c";
 
 init(process.env.AIRSTACK_KEY || "");
 
@@ -65,7 +66,7 @@ export async function POST(req) {
   const address = socials[0].userAssociatedAddresses[0]
 
   if (!results.Wallet.socialFollowers.Follower) {
-    return new NextResponse(_html(notFollowingImage, "Retry", "post", `${URL}`));
+    return new NextResponse(_html(notFollowingImage, "Retry", "post_redirect", `${URL}`));
   }
 
   if (alreadyClaimed.includes(fid)) {
