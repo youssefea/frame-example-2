@@ -26,9 +26,10 @@ export async function generateMetadata() {
     'fc:frame': 'vNext',
     'fc:frame:image': image,
     'fc:frame:image:aspect_ratio': '1:1',
-    'fc:frame:post_url': `${URL}/check`,
+    //'fc:frame:post_url': `${URL}/check`,
     'fc:frame:button:1': buttonText1,
     'fc:frame:button:1:action': 'post',
+    'fc:frame:button:1:target': `${URL}/check`,
   }
 
   return {
