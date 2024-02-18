@@ -36,6 +36,7 @@ const _html = (img, msg, action, url) => `
     <meta property="fc:frame:button:1" content="${msg}" />
     <meta property="fc:frame:button:1:action" content="${action}" />
     <meta property="fc:frame:button:1:target" content="${url}" />
+    <meta property="fc:frame:post_url" content="${url}" />
   </head>
 </html>
 `;
