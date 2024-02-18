@@ -65,7 +65,7 @@ export async function POST(req) {
   const address = socials[0].userAssociatedAddresses[0]
 
   if (!results.Wallet.socialFollowers.Follower) {
-    return new NextResponse(_html(notFollowingImage, "Retry", "post_redirect", `${URL}`));
+    return new NextResponse(_html(notFollowingImage, "Retry", "post", `${URL}`));
   }
 
   if (alreadyClaimed.includes(fid)) {
