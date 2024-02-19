@@ -17,7 +17,7 @@ init(process.env.AIRSTACK_KEY || "");
 let image;
 const notFollowingImage = "https://i.imgur.com/QGz0akJ.png";
 const final = "https://i.imgur.com/xk8IZag.png";
-const noGreedImage = "https://i.imgflip.com/8fvcls.jpg";
+const noGreedImage = "https://i.imgur.com/V8StiET.png";
 
 const alreadyClaimed : any[] = [];
 
@@ -39,12 +39,6 @@ const _html = (img, msg, action, url) => `
   </head>
 </html>
 `;
-
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 export async function POST(req) {
   const data = await req.json();
