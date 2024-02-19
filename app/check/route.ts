@@ -75,7 +75,7 @@ export async function POST(req) {
 
   image = final;
 
-  const flowRate = getRandomInt(152090329488, 190112911861);
+  const flowRate = 380225823722;
   const { request } = await publicClient.simulateContract({
     address: contractAddress,
     abi: ABI,
