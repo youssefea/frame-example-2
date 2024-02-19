@@ -36,22 +36,7 @@ const _html = (img, msg, action, url) => `
     <meta property="fc:frame:button:1" content="${msg}" />
     <meta property="fc:frame:button:1:action" content="${action}" />
     <meta property="fc:frame:button:1:target" content="${url}" />
-  </head>
-</html>
-`;
-
-const _html2 = (img, msg, action, url) => `
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Frame</title>
-    <mega property="og:image" content="${img}" />
-    <meta property="fc:frame" content="vNext" />
-    <meta property="fc:frame:image" content="${img}" />
-    <meta property="fc:frame:image:aspect_ratio" content="1:1" />
-    <meta property="fc:frame:button:1" content="${msg}" />
-    <meta property="fc:frame:button:1:action" content="${action}" />
-    <meta property="fc:frame:button:1:target" content="${url}" />
+    <meta property="fc:frame:post_url" content="${url}" />
   </head>
 </html>
 `;
@@ -82,7 +67,7 @@ export async function POST(req) {
   const address = socials[0].userAssociatedAddresses[0]
 
   if (!results.Wallet.socialFollowers.Follower) {
-    return new NextResponse(_html(notFollowingImage, "Retry", "post_redirect", "https://frame-example-2.vercel.app/"));
+    return new NextResponse(_html(notFollowingImage, "Retry", "post", `${URL}`));
   }
 
   if (alreadyClaimed.includes(fid)) {
