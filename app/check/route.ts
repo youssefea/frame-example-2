@@ -40,6 +40,22 @@ const _html = (img, msg, action, url) => `
 </html>
 `;
 
+const _html2 = (img, msg, action, url) => `
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Frame</title>
+    <mega property="og:image" content="${img}" />
+    <meta property="fc:frame" content="vNext" />
+    <meta property="fc:frame:image" content="${img}" />
+    <meta property="fc:frame:image:aspect_ratio" content="1:1" />
+    <meta property="fc:frame:button:1" content="${msg}" />
+    <meta property="fc:frame:button:1:action" content="${action}" />
+    <meta property="fc:frame:button:1:target" content="${url}" />
+  </head>
+</html>
+`;
+
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -66,7 +82,7 @@ export async function POST(req) {
   const address = socials[0].userAssociatedAddresses[0]
 
   if (!results.Wallet.socialFollowers.Follower) {
-    return new NextResponse(_html(notFollowingImage, "Retry", "post_redirect", `${URL}`));
+    return new NextResponse(_html(notFollowingImage, "Retry", "post_redirect", "https://frame-example-2.vercel.app/"));
   }
 
   if (alreadyClaimed.includes(fid)) {
