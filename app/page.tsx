@@ -29,6 +29,7 @@ export async function generateMetadata() {
     //'fc:frame:post_url': `${URL}/check`,
     'fc:frame:button:1': buttonText1,
     'fc:frame:button:1:action': 'post',
+    'fc:frame:button:$idx:target': `${URL}/check`,
     'fc:frame:post_url': `${URL}/check`,
 
   }
