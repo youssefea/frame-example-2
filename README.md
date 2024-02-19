@@ -1,1 +1,1 @@
-# Degen Follower Giveaway Frame
+# Follower Giveaway Frame using Superfluid
