@@ -15,9 +15,8 @@ const USDCxAddress = "0xD04383398dD2426297da660F9CCA3d439AF9ce1b";
 init(process.env.AIRSTACK_KEY || "");
 
 let image;
-const notFollowingImage = "https://i.imgflip.com/8fvawm.jpg";
-const notAddressImage = "https://i.imgflip.com/8fvb2d.jpg";
-const final = "https://i.imgur.com/NvF1M5r.jpeg";
+const notFollowingImage = "https://i.imgur.com/QGz0akJ.png";
+const final = "https://i.imgur.com/xk8IZag.png";
 const noGreedImage = "https://i.imgflip.com/8fvcls.jpg";
 
 const alreadyClaimed : any[] = [];

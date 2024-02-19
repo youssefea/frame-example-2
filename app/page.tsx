@@ -2,7 +2,7 @@ export const runtime = 'edge'
 import { URL } from '../constants'
 
 
-const image = "https://i.imgflip.com/8fvahi.jpg"
+const image = "https://i.imgur.com/rJgpv2g.png"
 const buttonText1 = 'Get Free Stream'
 
 export default function Home() {
